@@ -350,6 +350,13 @@ body {
   text-decoration: none;
   font-weight: 600;
   word-break: break-word;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact__links svg {
+  flex-shrink: 0;
 }
 
 .contact__links a:hover,
