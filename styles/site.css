@@ -141,17 +141,23 @@ body {
   display: grid;
   gap: 3rem;
   align-items: center;
+  grid-template-areas:
+    "portrait"
+    "lead"
+    "highlights";
 }
 
 .hero__lead {
   display: grid;
   gap: 1.5rem;
+  grid-area: lead;
 }
 
 .hero__portrait {
   margin: 0;
   display: flex;
   justify-content: center;
+  grid-area: portrait;
 }
 
 .hero__portrait img {
@@ -225,8 +231,8 @@ body {
   padding: 0;
   display: grid;
   gap: 1.5rem;
-  grid-column: 1 / -1;
   grid-template-columns: minmax(0, 1fr);
+  grid-area: highlights;
 }
 
 @media (min-width: 600px) {
@@ -238,27 +244,20 @@ body {
 @media (min-width: 720px) {
   .hero__content {
     grid-template-columns: minmax(240px, 1fr) minmax(0, 1.35fr);
-    align-items: center;
+    grid-template-areas:
+      "portrait lead"
+      "highlights highlights";
+    align-items: start;
   }
 }
 
 @media (min-width: 1024px) {
   .hero__content {
     grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    align-items: start;
-  }
-
-  .hero__portrait {
-    grid-row: 1;
-  }
-
-  .hero__lead {
-    grid-row: 1;
   }
 
   .hero__highlights {
-    grid-row: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
