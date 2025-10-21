@@ -101,9 +101,17 @@ body::before {
   z-index: -1;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(101, 255, 191, 0.08), transparent 55%),
+    linear-gradient(320deg, rgba(85, 227, 255, 0.1), transparent 65%);
+  opacity: 0.75;
+  mix-blend-mode: lighten;
+  z-index: -1;
 }
 
 a {
@@ -117,8 +125,9 @@ a:focus-visible {
   color: var(--color-accent);
 }
 
-.no-js body {
-  transition: none;
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .skip-link {
@@ -142,7 +151,7 @@ a:focus-visible {
 .shell {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.75rem;
 }
 
 .site-header {
@@ -261,11 +270,12 @@ a:focus-visible {
   box-shadow: 0 24px 55px rgba(6, 233, 255, 0.35);
 }
 
-.masthead {
+.site-nav {
   display: grid;
   gap: clamp(2.5rem, 5vw, 3.5rem);
   grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
   align-items: start;
+  z-index: 1;
 }
 
 @media (max-width: 960px) {
@@ -314,7 +324,7 @@ a:focus-visible {
 
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   font-weight: 600;
   font-size: 0.85rem;
   margin: 0 0 0.75rem;
@@ -324,9 +334,9 @@ a:focus-visible {
 h1,
 h2,
 h3 {
-  line-height: 1.2;
-  margin-top: 0;
   color: inherit;
+  margin: 0;
+  line-height: 1.2;
 }
 
 h1 {
@@ -349,7 +359,7 @@ h3 {
   margin-bottom: 2rem;
 }
 
-.cta-group {
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
@@ -451,7 +461,7 @@ h3 {
   color: #fff;
 }
 
-.social-links {
+.hero__social {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -530,6 +540,8 @@ main {
 }
 
 .section__content {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 2.2rem;
 }
@@ -598,19 +610,32 @@ main {
   margin-bottom: 0.85rem;
 }
 
-.meta {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
+.timeline__item header .meta {
+  margin-top: 0.35rem;
+  font-weight: 500;
+  color: var(--color-muted);
 }
 
-.card-grid {
+.timeline__item p {
+  margin: 0.9rem 0;
+}
+
+.timeline__item ul {
+  margin: 0;
+  padding-left: 1.1rem;
   display: grid;
   gap: 1.9rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.card-grid--single {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.timeline__item li {
+  color: rgba(245, 247, 255, 0.85);
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .card {
@@ -654,6 +679,8 @@ main {
   gap: 1.85rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   margin: 0;
+  display: grid;
+  gap: 1.5rem;
 }
 
 .skill-columns dt {
@@ -662,8 +689,8 @@ main {
 }
 
 .skill-columns dd {
-  margin: 0;
-  color: var(--color-text-muted);
+  margin: 0.35rem 0 0;
+  color: rgba(245, 247, 255, 0.9);
 }
 
 .contact-grid {
@@ -673,6 +700,7 @@ main {
 }
 
 .contact-card {
+  position: relative;
   display: grid;
   gap: 0.4rem;
   padding: 1.6rem 1.75rem;
@@ -732,11 +760,37 @@ main {
   margin: 0;
 }
 
+@media (max-width: 960px) {
+  .site-nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .site-nav__links ul {
+    flex-wrap: wrap;
+  }
+
+  .site-nav__cta {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .masthead__details {
     padding: 1.8rem;
   }
 
+  .hero__meta {
+    padding: 2rem;
+  }
+
+  .hero__highlights li,
   .card,
   .contact-card {
     padding: 1.6rem;
@@ -753,11 +807,15 @@ main {
 @media print {
   body {
     background: #fff;
-    color: #0f172a;
+    color: #0b1438;
   }
 
   .site-header,
   .site-footer,
+  .site-nav,
+  .hero__actions,
+  .hero__highlights,
+  .hero__social,
   .contact-grid,
   .cta-group,
   .primary-nav,
@@ -765,9 +823,8 @@ main {
     display: none !important;
   }
 
-  .section {
+  .shell {
     padding: 0;
-    margin-bottom: 1.5rem;
   }
 
   .section__panel {
@@ -779,6 +836,9 @@ main {
 
   .shell {
     padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .card,
