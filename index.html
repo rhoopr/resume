@@ -18,11 +18,19 @@
     <link rel="stylesheet" href="styles/site.css" />
   </head>
   <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="atmosphere__gradient"></div>
+      <div class="atmosphere__mesh atmosphere__mesh--primary"></div>
+      <div class="atmosphere__mesh atmosphere__mesh--secondary"></div>
+      <div class="atmosphere__beam"></div>
+    </div>
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header" role="banner">
-      <div class="container">
-        <div class="brand">Technical Program Leadership • AI/LLM Infrastructure</div>
+    <div class="site-frame">
+      <header class="site-header" role="banner">
+        <div class="site-header__brand">
+          <div class="brand">TECHNICAL PROGRAM MANAGEMENT</div>
+        </div>
         <nav class="primary-nav" aria-label="Main navigation">
           <ul>
             <li><a href="#about">About</a></li>
@@ -35,64 +43,67 @@
             >Download CV</a
           >
         </nav>
-      </div>
-    </header>
+      </header>
 
-    <section class="hero-name" aria-labelledby="hero-name">
-      <div class="container">
-        <h1 id="hero-name">Rob Hooper</h1>
-      </div>
-    </section>
-
-    <main id="main" tabindex="-1">
-      <section class="hero" id="about">
-        <div class="container hero__content">
-          <figure class="hero__portrait">
-            <img src="images/headshot.jpg" alt="Portrait of Rob Hooper" />
-          </figure>
-          <div class="hero__lead">
-            <p class="eyebrow">Technical Program Management</p>
-            <h2>Bridging strategy and execution for AI/LLM infrastructure programs.</h2>
-            <p>
-              Technical Program Manager with a track record of delivering complex programs in AI
-              infrastructure, distributed systems, and large-scale developer platforms. Known for
-              aligning engineering, product, and leadership to accelerate execution, de-risk delivery,
-              and scale adoption.
-            </p>
-            <div class="hero__actions">
-              <a class="button" href="mailto:tpm@robhooper.xyz">Email</a>
-              <a class="button button--ghost" href="#contact">Connect</a>
-            </div>
+      <main id="main" class="main" tabindex="-1">
+        <section class="identity" aria-labelledby="hero-name" id="about">
+          <div class="identity__heading">
+            <h1 id="hero-name">Rob Hooper</h1>
+            <p class="eyebrow">TECHNICAL PROGRAM LEADER * AI/LLM INFRASTRUCTURE</p>
           </div>
-          <ul class="hero__highlights" aria-label="Snapshot">
-            <li>
-              <span class="hero__metric">Greater Philadelphia</span>
-              <span>Technical Program Manager focused on AI/LLM infrastructure delivery.</span>
-            </li>
-            <li>
-              <span class="hero__metric">robhooper335@icloud.com</span>
-              <span>Partnering directly with stakeholders to create clarity and momentum.</span>
-            </li>
-            <li>
-              <span class="hero__metric">linkedin.com/in/rwh</span>
-              <span>Driving alignment across engineering, product, and executive teams.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div class="identity__grid">
+            <div class="identity__intro">
+              <div class="identity__panel">
+                <h2>Bridging strategy and execution for AI/LLM infrastructure programs.</h2>
+                <p>
+                  Technical Program Manager with a track record of delivering complex programs in AI
+                  infrastructure, distributed systems, and large-scale developer platforms. Known for
+                  aligning engineering, product, and leadership to accelerate execution, de-risk delivery,
+                  and scale adoption.
+                </p>
+              </div>
+            </div>
+            <div class="identity__actions">
+              <div class="identity__panel identity__panel--actions">
+                <div class="hero__actions">
+                  <a class="button" href="mailto:tpm@robhooper.xyz">Email</a>
+                  <a class="button button--ghost" href="#contact">Connect</a>
+                </div>
+                <ul class="identity__signals" aria-label="Snapshot">
+                  <li>
+                    <span class="hero__metric">Greater Philadelphia</span>
+                    <span>Technical Program Manager focused on AI/LLM infrastructure delivery.</span>
+                  </li>
+                  <li>
+                    <span class="hero__metric">robhooper335@icloud.com</span>
+                    <span>Partnering directly with stakeholders to create clarity and momentum.</span>
+                  </li>
+                  <li>
+                    <span class="hero__metric">linkedin.com/in/rwh</span>
+                    <span>Driving alignment across engineering, product, and executive teams.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <figure class="identity__portrait">
+              <div class="portrait-frame">
+                <img src="images/headshot.jpg" alt="Portrait of Rob Hooper" />
+              </div>
+            </figure>
+          </div>
+        </section>
 
-      <section class="section" id="experience">
-        <div class="container">
-          <div class="section__header">
+        <section class="module" id="experience">
+          <div class="module__header">
             <h2>Experience</h2>
             <p>Recent roles delivering AI infrastructure and enterprise platforms at scale.</p>
           </div>
-          <div class="timeline">
-            <article class="timeline__item">
-              <header>
+          <div class="experience-grid">
+            <article class="experience-card">
+              <div class="experience-card__heading">
                 <h3>Scala Computing</h3>
                 <p class="timeline__meta">Technical Program Manager · Mar 2022 — Present</p>
-              </header>
+              </div>
               <p>
                 Directing delivery of an AI/LLM network simulation platform operating at data center
                 scale while partnering with leadership to keep milestones and success criteria aligned.
@@ -103,11 +114,11 @@
                 <li>Enabled distributed teams to boost execution velocity by X% through transparent reporting.</li>
               </ul>
             </article>
-            <article class="timeline__item">
-              <header>
+            <article class="experience-card">
+              <div class="experience-card__heading">
                 <h3>Elemica</h3>
                 <p class="timeline__meta">Technical Project Manager · May 2019 — Feb 2022</p>
-              </header>
+              </div>
               <p>
                 Delivered SaaS and on-premise TMS solutions for Fortune 500 manufacturers, coordinating
                 engineering, sales, and client IT teams across global supply chains.
@@ -118,11 +129,11 @@
                 <li>Improved customer satisfaction by enforcing transparent delivery processes.</li>
               </ul>
             </article>
-            <article class="timeline__item">
-              <header>
+            <article class="experience-card">
+              <div class="experience-card__heading">
                 <h3>Dorman Products</h3>
                 <p class="timeline__meta">Senior Business Analyst · Apr 2016 — May 2019</p>
-              </header>
+              </div>
               <p>
                 Spearheaded architecture of the first cloud-native API suite on Azure SAP stack,
                 modernizing enterprise workflows and reducing defects for operations teams.
@@ -134,31 +145,29 @@
               </ul>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section section--grid" id="impact">
-        <div class="container">
-          <div class="section__header">
+        <section class="module module--dual" id="impact">
+          <div class="module__header">
             <h2>Impact Highlights</h2>
             <p>Selected outcomes from AI infrastructure, enterprise software, and defense programs.</p>
           </div>
-          <div class="card-grid">
-            <article class="card">
+          <div class="impact-grid">
+            <article class="impact-card">
               <h3>AI/LLM platform leadership</h3>
               <p>
                 Directed development of an AI/LLM network simulation platform, validating use cases and
                 success criteria that accelerated adoption by enterprise customers.
               </p>
             </article>
-            <article class="card">
+            <article class="impact-card">
               <h3>Enterprise delivery excellence</h3>
               <p>
                 Coordinated global SaaS and on-premise deployments for Fortune 500 manufacturers,
                 reducing deployment cycles by weeks and improving transparency for stakeholders.
               </p>
             </article>
-            <article class="card">
+            <article class="impact-card">
               <h3>Mission-critical modernization</h3>
               <p>
                 Delivered high-reliability software for defense navigation systems, standardizing
@@ -166,81 +175,75 @@
               </p>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="expertise">
-        <div class="container">
-          <div class="section__header">
+        <section class="module module--columns" id="expertise">
+          <div class="module__header">
             <h2>Expertise</h2>
             <p>Skills spanning program leadership, cloud platforms, and cross-functional delivery.</p>
           </div>
-          <div class="expertise-grid">
-            <div>
+          <div class="expertise-columns">
+            <article class="expertise-card">
               <h3>Program Leadership</h3>
               <p>Program &amp; project management, stakeholder alignment, executive reporting, governance.</p>
-            </div>
-            <div>
+            </article>
+            <article class="expertise-card">
               <h3>Operations &amp; Governance</h3>
               <p>Risk tracking, process optimization, onboarding playbooks, transparent cadences.</p>
-            </div>
-            <div>
+            </article>
+            <article class="expertise-card">
               <h3>Technical Fluency</h3>
               <p>AI/ML infrastructure, distributed systems, cloud (Azure, SaaS), API architecture.</p>
-            </div>
-            <div>
+            </article>
+            <article class="expertise-card">
               <h3>Collaboration</h3>
               <p>Cross-functional leadership, partner enablement, agile delivery, customer engagement.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="module module--contact" id="contact">
+          <div class="contact-console">
+            <div class="contact-console__intro">
+              <h2>Let’s build what’s next</h2>
+              <p>
+                Focused on technical program management roles that translate strategic intent into
+                execution across AI infrastructure and mission-critical software. Let’s connect about how
+                I can create clarity, align stakeholders, and deliver outcomes.
+              </p>
+            </div>
+            <div class="contact-console__links">
+              <a class="contact-console__link" href="mailto:tpm@robhooper.xyz">📧 Email</a>
+              <a class="contact-console__link contact-console__link--network" href="https://www.linkedin.com/in/rwh" target="_blank" rel="noreferrer">
+                <svg width="25" height="25" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,0 64,0 L8,0 C3.581722,0 0,3.581722 0,8 L0,64 C0,68.418278 3.581722,72 8,72 Z"
+                      fill="#1b242f"
+                    />
+                    <path
+                      d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z"
+                      fill="#bdef80"
+                    />
+                  </g>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              <a class="contact-console__link" href="Rob_Hooper_Resume_Tailored.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <section class="section section--accent" id="contact">
-        <div class="container contact">
-          <div>
-            <h2>Let’s build what’s next</h2>
-            <p>
-              Focused on technical program management roles that translate strategic intent into
-              execution across AI infrastructure and mission-critical software. Let’s connect about how
-              I can create clarity, align stakeholders, and deliver outcomes.
-            </p>
-          </div>
-          <div class="contact__links">
-            <a href="mailto:tpm@robhooper.xyz">📧 Email</a>
-            <a href="https://www.linkedin.com/in/rwh" target="_blank" rel="noreferrer">
-              <svg width="25" height="25" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <g fill="none" fill-rule="evenodd">
-                  <path
-                    d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,0 64,0 L8,0 C3.581722,0 0,3.581722 0,8 L0,64 C0,68.418278 3.581722,72 8,72 Z"
-                    fill="#007EBB"
-                  />
-                  <path
-                    d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="Rob_Hooper_Resume_Tailored.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-      <div class="container">
-        <p>&copy; <span id="current-year"></span> Rob Hooper. Built for clarity and speed.</p>
-      </div>
-    </footer>
+      <footer class="site-footer" role="contentinfo">
+        <small>&copy; <span id="year"></span> Rob Hooper. Built for clarity and speed.</small>
+      </footer>
+    </div>
 
     <script>
-      document.documentElement.classList.remove("no-js");
-      const yearElement = document.getElementById("current-year");
-      if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-      }
+      document.documentElement.classList.remove('no-js');
+      const year = new Date().getFullYear();
+      document.getElementById('year').textContent = year;
     </script>
   </body>
 </html>
