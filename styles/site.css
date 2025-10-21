@@ -496,21 +496,21 @@ a:focus {
 }
 
 .experience-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
 }
 
 .experience-card {
   position: relative;
   border-radius: var(--radius-md);
-  padding: 1.8rem 2.2rem;
+  padding: 1.8rem;
   background: rgba(22, 28, 38, 0.76);
   border: 1px solid var(--panel-stroke);
   box-shadow: var(--shadow-sm);
-  display: grid;
-  gap: 1.4rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
 .experience-card::after {
@@ -529,50 +529,26 @@ a:focus {
   opacity: 1;
 }
 
-.experience-card__meta {
-  display: flex;
-  align-items: baseline;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.experience-card__meta h3 {
+.experience-card__heading h3 {
   margin: 0;
   font-size: 1.2rem;
   color: var(--text-strong);
-  letter-spacing: 0.01em;
 }
 
-.experience-card__meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.78rem;
+.timeline__meta {
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--text-soft);
-  font-weight: 600;
 }
 
-.experience-card__meta span::before {
-  content: "•";
-  font-size: 0.65rem;
-  color: var(--text-soft);
-  opacity: 0.7;
-}
-
-.experience-card__content {
-  display: grid;
-  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  gap: 1rem 2.2rem;
-}
-
-.experience-card__content p {
+.experience-card p {
   margin: 0;
   color: var(--text-body);
 }
 
-.experience-card__content ul {
+.experience-card ul {
   margin: 0;
   padding-left: 1.1rem;
   display: grid;
@@ -737,6 +713,7 @@ a:focus {
     align-self: stretch;
   }
 
+  .experience-grid,
   .module--dual .impact-grid,
   .module--columns .expertise-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -785,6 +762,7 @@ a:focus {
     align-items: flex-start;
   }
 
+  .experience-grid,
   .module--dual .impact-grid,
   .module--columns .expertise-columns {
     grid-template-columns: 1fr;
@@ -797,22 +775,6 @@ a:focus {
   .contact-console__links {
     flex-direction: column;
     align-items: flex-start;
-  }
-}
-
-@media (max-width: 960px) {
-  .experience-card {
-    padding: 1.6rem 1.8rem;
-    gap: 1.2rem;
-  }
-
-  .experience-card__content {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
-  }
-
-  .experience-card__meta {
-    gap: 0.6rem;
   }
 }
 
