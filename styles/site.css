@@ -207,9 +207,9 @@ a:focus {
   --identity-column-gap: clamp(2rem, 2.7vw, 2.4rem);
   padding: 3.2rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--panel-stroke);
-  background: var(--bg-1);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(197, 206, 216, 0.55);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(235, 239, 243, 0.92));
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
   overflow: hidden;
 }
 
@@ -263,7 +263,7 @@ a:focus {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: var(--identity-column-gap);
-  row-gap: 2.6rem;
+  row-gap: 3rem;
   align-items: stretch;
   z-index: 1;
 }
@@ -281,16 +281,16 @@ a:focus {
 }
 
 .identity__panel {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.96);
   border-radius: var(--radius-md);
   padding: 2rem;
-  border: 1px solid var(--panel-stroke);
-  box-shadow: var(--shadow-sm);
+  border: none;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
   width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 
 .identity__panel h2 {
@@ -307,8 +307,7 @@ a:focus {
 
 .identity__panel--actions {
   gap: 1.6rem;
-  background: #fff;
-  border: 1px solid var(--panel-stroke);
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .identity__actions {
@@ -344,8 +343,8 @@ a:focus {
   --portrait-aspect: 2 / 3;
   --portrait-height: clamp(165px, 19.5vw, 195px);
   --portrait-inline-size: calc(var(--portrait-height) * 2 / 3);
-  background: var(--bg-0);
-  border: 1px solid var(--panel-stroke-strong);
+  background: linear-gradient(150deg, rgba(244, 246, 248, 0.9), rgba(221, 227, 234, 0.8));
+  border: 1px solid rgba(139, 152, 172, 0.45);
   padding: 0;
   align-items: center;
   justify-content: center;
@@ -477,13 +476,17 @@ a:focus {
   position: relative;
   padding: 2.8rem 3rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--panel-stroke);
-  background: var(--bg-1);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(197, 206, 216, 0.5);
+  background: linear-gradient(165deg, rgba(244, 246, 248, 0.95), rgba(221, 227, 234, 0.9));
+  box-shadow: 0 22px 46px rgba(15, 23, 42, 0.12);
 }
 
 .module::before {
   content: none;
+}
+
+.module:nth-of-type(even) {
+  background: linear-gradient(165deg, rgba(235, 239, 243, 0.96), rgba(204, 213, 223, 0.88));
 }
 
 .module__header {
@@ -573,17 +576,17 @@ a:focus {
 .module--dual .impact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.6rem;
+  gap: 2rem;
 }
 
 .impact-card {
   border-radius: var(--radius-md);
-  padding: 1.75rem;
-  background: var(--bg-0);
-  border: 1px solid var(--panel-stroke);
-  box-shadow: none;
+  padding: 1.85rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: none;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.07);
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 .impact-card h3 {
