@@ -175,7 +175,7 @@ a:focus {
   color: var(--text-strong);
 }
 
-.primary-nav__cta {
+.primary-nav .primary-nav__cta {
   padding: 0.55rem 1.3rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--accent);
@@ -187,8 +187,8 @@ a:focus {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.primary-nav__cta:hover,
-.primary-nav__cta:focus {
+.primary-nav .primary-nav__cta:hover,
+.primary-nav .primary-nav__cta:focus {
   background: var(--accent-strong);
   color: #fff;
 }
@@ -203,6 +203,7 @@ a:focus {
 
 .identity {
   position: relative;
+  --identity-column-gap: clamp(2rem, 2.7vw, 2.4rem);
   padding: 3.2rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--panel-stroke);
@@ -219,7 +220,7 @@ a:focus {
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-bottom: 2.8rem;
+  margin-bottom: 0;
   padding-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -246,18 +247,27 @@ a:focus {
   letter-spacing: -0.01em;
 }
 
+.identity__hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--identity-column-gap);
+  align-items: start;
+  margin-bottom: 2.8rem;
+}
+
 .identity__grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-areas: "portrait intro actions";
-  gap: 2.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--identity-column-gap);
+  row-gap: 2.6rem;
   align-items: stretch;
   z-index: 1;
 }
 
 .identity__intro {
-  grid-area: intro;
   display: flex;
 }
 
@@ -301,14 +311,12 @@ a:focus {
 }
 
 .identity__actions {
-  grid-area: actions;
   display: flex;
 }
 
 .identity__portrait {
   display: flex;
-  justify-content: center;
-  grid-area: portrait;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -332,17 +340,36 @@ a:focus {
 }
 
 .identity__panel--portrait {
+  --portrait-aspect: 2 / 3;
+  --portrait-height: clamp(165px, 19.5vw, 195px);
+  --portrait-inline-size: calc(var(--portrait-height) * 2 / 3);
   background: var(--bg-0);
   border: 1px solid var(--panel-stroke-strong);
-  padding: 1.5rem;
+  padding: 0;
   align-items: center;
   justify-content: center;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  gap: 0;
+  width: var(--portrait-inline-size);
+  height: var(--portrait-height);
+  overflow: hidden;
 }
 
 .identity__panel--portrait .portrait-frame {
+  width: var(--portrait-inline-size);
+  height: var(--portrait-height);
+  block-size: var(--portrait-height);
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: var(--portrait-aspect);
+}
+
+.identity__panel--portrait .portrait-frame img {
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
 }
 .hero__actions {
   display: flex;
@@ -417,8 +444,8 @@ a:focus {
 
 .portrait-frame {
   position: relative;
-  width: min(320px, 100%);
-  aspect-ratio: 3 / 4;
+  inline-size: var(--portrait-inline-size, min(320px, 100%));
+  aspect-ratio: var(--portrait-aspect, 3 / 4);
   border-radius: var(--radius-md);
   padding: 12px;
   background: var(--bg-0);
@@ -666,6 +693,13 @@ a:focus {
   background: var(--bg-1);
 }
 
+@media (min-width: 769px) {
+  .identity__heading h1,
+  .identity__heading .eyebrow {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 1100px) {
   .site-header {
     flex-wrap: wrap;
@@ -677,19 +711,13 @@ a:focus {
     justify-content: flex-end;
   }
 
+  .identity__hero {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+
   .identity__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-      "portrait intro"
-      "actions actions";
-  }
-
-  .identity__portrait {
-    justify-content: flex-start;
-  }
-
-  .identity__actions {
-    align-self: stretch;
   }
 
   .experience-grid,
@@ -718,8 +746,12 @@ a:focus {
     padding: 2.2rem;
   }
 
+  .identity__hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .identity__heading {
-    margin-bottom: 2.1rem;
     padding-bottom: 1.1rem;
   }
 
@@ -729,10 +761,6 @@ a:focus {
 
   .identity__grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "intro"
-      "actions"
-      "portrait";
     gap: 2rem;
   }
 
