@@ -1,0 +1,40 @@
+Rob Hooper
+Senior Technical Program Manager | rh@robhooper.xyz | https://www.linkedin.com/in/rwh
+
+Summary
+- Technical program leader delivering AI-scale simulation, platform orchestration, and mission-critical systems.
+- Expert in release-train governance, telemetry, and cross-functional alignment for predictable outcomes.
+
+Core Expertise
+- Program Leadership: Multi-team release trains, stakeholder governance, executive reporting, partner alignment.
+- Platform & Simulation Delivery: Distributed simulation, Kubernetes & Ray orchestration, AWS infrastructure, reliability.
+- Operational Analytics: DORA dashboards, telemetry automation, metrics-driven retrospectives, GitLab TeamOps certified.
+
+Experience
+Scala Computing — Technical Program Manager (2022–Present)
+- Direct AI network-simulation platform for Fortune 500 customers to validate LLM/DLRM topologies before deployment.
+- Stabilized engine, orchestration, and AWS runtime services, sustaining 99.5%+ availability for simulation workloads.
+- Rolled out a quarterly release train that doubled throughput while raising forecast accuracy to 95%.
+- Delivered DORA and capacity dashboards that cut expedite requests 30% and sped retros by 40%.
+- Leveraged Cursor and Codex automations to shrink dashboard delivery timelines by 45%.
+
+ProcessWeaver / Elemica — Technical Project Manager (2019–2022)
+- Directed global SaaS and on-prem transportation programs relied upon by Fortune 500 manufacturers.
+- Managed 5–7 concurrent enterprise launches and cut onboarding time ≈30% through standardized playbooks.
+- Delivered multi-year deployments on schedule while navigating compliance, performance, and change control.
+- Established RAID tracking and delivery dashboards to align customer commitments with engineering capacity.
+
+Dorman Products — Senior Business Analyst (2016–2019)
+- Modernized order-to-cash and logistics operations for a 120,000+ SKU portfolio.
+- Built Azure↔SAP APIs delivering real-time pricing and availability, reducing order handling ≈30%.
+- Launched live dashboards enabling same-session quote turnaround for thousands of partners.
+- Deployed Qlik Gold Client, cutting root-cause analysis 50–60% and shrinking data prep ≈30%.
+
+Education & Certifications
+- B.S. Mechanical Engineering, University of Pittsburgh
+- GitLab TeamOps Certified Professional
+
+Tools & Platforms
+- AWS, Kubernetes, Ray, Terraform, Azure
+- Jira, Notion, GitHub, Linear, Looker, Qlik, Power BI
+- Python, SQL, TypeScript, dbt, Airflow
