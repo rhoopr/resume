@@ -474,32 +474,6 @@ a:focus {
   color: #fff;
 }
 
-.identity__signals {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.identity__signals li {
-  display: grid;
-  gap: 0.25rem;
-}
-
-.hero__metric {
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.hero__metric:focus,
-.hero__metric:hover {
-  color: var(--accent-strong);
-}
-
 .identity__checklist {
   list-style: none;
   margin: 0;
