@@ -776,6 +776,10 @@ a:focus {
   text-wrap: balance;
 }
 
+.contact-console__intro p:first-of-type {
+  white-space: nowrap;
+}
+
 .contact-console__links {
   display: flex;
   flex-wrap: wrap;
