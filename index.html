@@ -50,16 +50,27 @@
           </div>
         </div>
         <nav class="primary-nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#expertise">Expertise</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="primary-nav__downloads">
-            <a class="primary-nav__cta" href="Rob_Hooper_Resume_Web.pdf" target="_blank" rel="noreferrer"
-              >Download CV</a
-            >
+          <button
+            class="primary-nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-nav-panel"
+          >
+            <span class="primary-nav__toggle-icon" aria-hidden="true">☰</span>
+            <span class="primary-nav__toggle-label">Menu</span>
+          </button>
+          <div class="primary-nav__panel" id="primary-nav-panel" aria-hidden="true">
+            <ul id="primary-nav-menu">
+              <li><a href="#about">About</a></li>
+              <li><a href="#expertise">Expertise</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="primary-nav__downloads">
+              <a class="primary-nav__cta" href="Rob_Hooper_Resume_Web.pdf" target="_blank" rel="noreferrer"
+                >Download CV</a
+              >
+            </div>
           </div>
         </nav>
       </header>
@@ -306,6 +317,56 @@
       document.documentElement.classList.remove('no-js');
       const year = new Date().getFullYear();
       document.getElementById('year').textContent = year;
+
+      const nav = document.querySelector('.primary-nav');
+      const navToggle = document.querySelector('.primary-nav__toggle');
+      const navPanel = nav?.querySelector('.primary-nav__panel');
+      const navLinks = nav?.querySelectorAll('a');
+      const mobileMediaQuery = window.matchMedia('(max-width: 640px)');
+
+      const syncNavState = () => {
+        if (!navPanel || !navToggle) {
+          return;
+        }
+
+        if (mobileMediaQuery.matches) {
+          const expanded = nav.classList.contains('primary-nav--expanded');
+          navPanel.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+        } else {
+          nav.classList.remove('primary-nav--expanded');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navPanel.removeAttribute('aria-hidden');
+        }
+      };
+
+      if (nav && navToggle) {
+        navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          const nextState = !expanded;
+          navToggle.setAttribute('aria-expanded', String(nextState));
+          nav.classList.toggle('primary-nav--expanded', nextState);
+          if (navPanel && mobileMediaQuery.matches) {
+            navPanel.setAttribute('aria-hidden', nextState ? 'false' : 'true');
+          }
+        });
+
+        navLinks?.forEach((link) => {
+          link.addEventListener('click', () => {
+            if (window.matchMedia('(max-width: 640px)').matches) {
+              navToggle.setAttribute('aria-expanded', 'false');
+              nav.classList.remove('primary-nav--expanded');
+              navPanel?.setAttribute('aria-hidden', 'true');
+            }
+          });
+        });
+
+        syncNavState();
+        if (mobileMediaQuery.addEventListener) {
+          mobileMediaQuery.addEventListener('change', syncNavState);
+        } else if (mobileMediaQuery.addListener) {
+          mobileMediaQuery.addListener(syncNavState);
+        }
+      }
     </script>
   </body>
 </html>
