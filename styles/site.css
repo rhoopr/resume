@@ -40,6 +40,28 @@ body {
   overflow-x: hidden;
 }
 
+.skip-link {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 0.25rem;
+  transform: translate(-50%, -150%);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 a {
   color: inherit;
 }
