@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="styles/site.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="atmosphere" aria-hidden="true">
       <div class="atmosphere__gradient"></div>
       <div class="atmosphere__mesh atmosphere__mesh--primary"></div>
@@ -324,6 +325,28 @@
       const navLinks = nav?.querySelectorAll('a');
       const mobileMediaQuery = window.matchMedia('(max-width: 640px)');
 
+      const updateNavAccessibility = ({ isMobile, expanded }) => {
+        if (!navPanel) {
+          return;
+        }
+
+        if (isMobile) {
+          navPanel.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+          navPanel.toggleAttribute('inert', !expanded);
+          navLinks?.forEach((link) => {
+            if (!expanded) {
+              link.setAttribute('tabindex', '-1');
+            } else {
+              link.removeAttribute('tabindex');
+            }
+          });
+        } else {
+          navPanel.removeAttribute('aria-hidden');
+          navPanel.removeAttribute('inert');
+          navLinks?.forEach((link) => link.removeAttribute('tabindex'));
+        }
+      };
+
       const syncNavState = () => {
         if (!navPanel || !navToggle) {
           return;
@@ -331,12 +354,22 @@
 
         if (mobileMediaQuery.matches) {
           const expanded = nav.classList.contains('primary-nav--expanded');
-          navPanel.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+          updateNavAccessibility({ isMobile: true, expanded });
         } else {
           nav.classList.remove('primary-nav--expanded');
           navToggle.setAttribute('aria-expanded', 'false');
-          navPanel.removeAttribute('aria-hidden');
+          updateNavAccessibility({ isMobile: false, expanded: false });
         }
+      };
+
+      const closeNav = () => {
+        if (!navToggle) {
+          return;
+        }
+
+        navToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('primary-nav--expanded');
+        updateNavAccessibility({ isMobile: mobileMediaQuery.matches, expanded: false });
       };
 
       if (nav && navToggle) {
@@ -345,19 +378,22 @@
           const nextState = !expanded;
           navToggle.setAttribute('aria-expanded', String(nextState));
           nav.classList.toggle('primary-nav--expanded', nextState);
-          if (navPanel && mobileMediaQuery.matches) {
-            navPanel.setAttribute('aria-hidden', nextState ? 'false' : 'true');
-          }
+          updateNavAccessibility({ isMobile: mobileMediaQuery.matches, expanded: nextState });
         });
 
         navLinks?.forEach((link) => {
           link.addEventListener('click', () => {
             if (window.matchMedia('(max-width: 640px)').matches) {
-              navToggle.setAttribute('aria-expanded', 'false');
-              nav.classList.remove('primary-nav--expanded');
-              navPanel?.setAttribute('aria-hidden', 'true');
+              closeNav();
             }
           });
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && nav.classList.contains('primary-nav--expanded') && mobileMediaQuery.matches) {
+            closeNav();
+            navToggle.focus();
+          }
         });
 
         syncNavState();
