@@ -1152,6 +1152,10 @@ a:focus {
     width: 100%;
     justify-content: center;
   }
+
+  .portrait-frame img {
+    object-position: center;
+  }
 }
 
 @media (max-width: 520px) {
